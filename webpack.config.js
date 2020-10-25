@@ -7,7 +7,7 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/",
+    publicPath: "", //Без этой опции почему-то ругается htmlWebpackPlugin. Убрал слеш.
   },
   module: {
     rules: [
