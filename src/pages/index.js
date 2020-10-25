@@ -1,11 +1,11 @@
-import "../index.css";
+import "./index.css";
 
-import Card from "./Card.js";
-import Section from "./Section.js";
-import PopupWithImage from "./PopupWithImage.js";
-import PopupWithForm from "./PopupWithForm.js";
-import UserInfo from "./UserInfo.js";
-import FormValidator from "./FormValidator.js";
+import Card from "../components/Card.js";
+import Section from "../components/Section.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
+import FormValidator from "../components/FormValidator.js";
 
 import {
   initialCards,
@@ -21,7 +21,7 @@ import {
   inputAbout,
   cardNameInput,
   cardImageUrl
-} from "./constants.js";
+} from "../components/constants.js";
 
 //Валидация форм
 const popupCardFormValidator = new FormValidator(validationParams, popupCard);
@@ -37,8 +37,8 @@ popupProfileFormValidator.enableValidation();
 const addCardList = new Section(
   {
     items: initialCards,
-    renderer: (item) => {
-      addCardList.addItem(renderCard(item.name, item.link));
+    renderer: ({ name, link }) => {
+      addCardList.addItem(renderCard(name, link));
     },
   },
   ".elements__list"
@@ -54,8 +54,8 @@ const userProfile = new UserInfo({
 //Попап профиля
 const popupEditProfile = new PopupWithForm({
   popupSelector: ".popup_type_profile",
-  handleFormSubmit: (item) => {
-    userProfile.setUserInfo(item.nameProfile, item.aboutProfile);
+  handleFormSubmit: ({ nameProfile, aboutProfile }) => {
+    userProfile.setUserInfo(nameProfile, aboutProfile);
   },
 });
 popupEditProfile.setEventListeners();
@@ -63,8 +63,8 @@ popupEditProfile.setEventListeners();
 //Попап добавления картинки
 const popupAddCard = new PopupWithForm({
   popupSelector: ".popup_type_card",
-  handleFormSubmit: (item) => {
-    addCardList.addItem(renderCard(item.namePlace, item.aboutPlace));
+  handleFormSubmit: ({ namePlace, aboutPlace }) => {
+    addCardList.addItem(renderCard(namePlace, aboutPlace));
   },
 });
 popupAddCard.setEventListeners();
