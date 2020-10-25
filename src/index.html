@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Места</title>
+    </head>
+    <body class="page">
+        <header class="section header">
+            <div class="header__logo"></div>
+        </header>
+        <main>
+            <section class="section profile">
+                <div class="profile__content">
+                    <img src="./images/jak.jpg" alt="Аватар пользователя" class="profile__image" />
+                    <div class="profile__info">
+                        <h1 class="profile__info-title">Жак-Ив Кусто</h1>
+                        <button type="button" class="profile__edit-button"></button>
+                        <p class="profile__description">Исследователь океана</p>
+                    </div>
+                </div>
+                <button type="button" class="profile__button"></button>
+            </section>
+            <section class="section elements">
+                <ul class="elements__list">
+                </ul>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__caption" lang="en">&#169; 2020 Mesto Russia</p>
+        </footer>
+        <div class="popup popup_type_profile">
+            <div class="popup__container popup__container_forms">
+                <button type="button" class="popup__close-button"></button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form name="formProfile" action="#" class="form form_profile" novalidate>
+                    <label class="form__label">
+                        <input type="text" name="nameProfile" class="form__input form__input_type_name" value="Жак-Ив Кусто" placeholder="Имя" minlength="2" maxlength="40" autocomplete="off" required />
+                        <span class="form__error" id="nameProfile-error"></span>
+                    </label>
+                    <label class="form__label">
+                        <input type="text" name="aboutProfile" class="form__input form__input_type_about" value="Исследователь океана" placeholder="О себе" minlength="2" maxlength="200" autocomplete="off" required />
+                        <span class="form__error" id="aboutProfile-error"></span>
+                    </label>
+                    <button type="submit" name="saveButtonProfile" class="popup__save-button" disabled>Сохранить</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_type_card">
+            <div class="popup__container popup__container_forms">
+                <button type="button" class="popup__close-button"></button>
+                <h2 class="popup__title">Новое место</h2>
+                <form name="formPlace" action="#" class="form form_card" novalidate>
+                    <label class="form__label">
+                        <input type="text" name="namePlace" class="form__input form__input_type_place" placeholder="Название" minlength="1" maxlength="30" autocomplete="off" required/>
+                        <span class="form__error" id="namePlace-error"></span>
+                    </label>
+                    <label class="form__label">
+                        <input type="url" name="aboutPlace" class="form__input form__input_type_url" placeholder="Ссылка на картинку" autocomplete="off" required/>
+                        <span class="form__error" id="aboutPlace-error"></span>
+                    </label>
+                    <button type="submit" name="saveButtonCard" class="popup__save-button popup__save-button_disabled" disabled>Сохранить</button>
+                </form>
+            </div>
+        </div>
+        <div class="popup popup_type_image">
+            <div class="popup__container popup__container_image">
+                <button type="button" class="popup__close-button"></button>
+                <img class="popup__image" src="#" alt="">
+                <h3 class="popup__title popup__title_image"></h3>
+            </div>
+        </div>
+        <template id='card'>
+            <li class="element">
+                <button type="button" class="element__image_button">
+                    <img src="#" alt="" class="element__image" />
+                </button>
+                <div class="element__content">
+                    <h2 class="element__content-text"></h2>
+                    <button type="button" class="element__content-like"></button>
+                    <button type="button" class="element__content-basket"></button>
+                </div>
+            </li>
+        </template>
+    </body>
+</html>
+

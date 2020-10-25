@@ -1,0 +1,14 @@
+@import url(./__content/element__content.css);
+@import url(./__image/element__image.css);
+@import url(./__content-text/element__content-text.css);
+@import url(./__content-like/element__content-like.css);
+@import url(./__image/_button/element__image_button.css);
+
+
+
+
+.element {
+    position: relative;
+    max-width: 288px;
+    align-items: center;
+}
