@@ -1,38 +1,7 @@
 import FormValidator from "./FormValidator.js";
 
 // Массив карточек
-export const initialCards = [
-  {
-    name: "Архыз",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link:
-      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+export const initialCards = [];
 
 // Объект с элементами форм
 export const validationParams = {
@@ -63,12 +32,28 @@ export const formPlaceValidator = new FormValidator(
   formPlace
 );
 export const popupCard = document.querySelector(".popup_type_card");
-export const cardNameInput = formPlace.elements.namePlace;
-export const cardImageUrl = formPlace.elements.aboutPlace;
+export const cardNameInput = formPlace.elements.name;
+export const cardImageUrl = formPlace.elements.link;
+
+//popupImage и внутренности
+export const popupImage = document.querySelector(".popup_type_image");
+
+//popupDelete и внутренности
+export const popupDelete = document.querySelector(".popup_type_delete");
+
+//popupAvatar и внутренности
+export const formAvatar = document.forms.formAvatar;
+export const formAvatarValidator = new FormValidator(
+  validationParams,
+  formAvatar
+);
+export const popupAvatar = document.querySelector(".popup_type_avatar");
+export const profileAvatarUrl = formAvatar.elements.name;
 
 //buttons
 export const editButton = document.querySelector(".profile__edit-button");
 export const cardButton = document.querySelector(".profile__button");
+export const avatarButton = document.querySelector(".profile__image-edit");
 export const profileCloseButton = popupProfile.querySelector(
   ".popup__close-button"
 );
@@ -77,11 +62,15 @@ export const imageSaveButton = popupCard.querySelector(".popup__save-button");
 export const profileSaveButton = popupProfile.querySelector(
   ".popup__save-button"
 );
+export const popupDeleteButton = popupDelete.querySelector(
+  ".popup__close-button"
+);
 
 //____
 export const profileName = document.querySelector(".profile__info-title");
 export const profileAbout = document.querySelector(".profile__description");
+export const profileAvatar = document.querySelector(".profile__image");
 
 export const cardListSelector = ".elements__list";
 
-export const popups = Array.from(document.querySelectorAll(".popup"));
+//export const popups = Array.from(document.querySelectorAll(".popup"));
