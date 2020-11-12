@@ -1,3 +1,10 @@
+const handleOriginalResponse = (res) => {
+  if (!res.ok) {
+    return Promise.reject(`ASHIPKA: ${res.status}`);
+  }
+  return res.json();
+};
+
 export default class Api {
   constructor(options) {
     this._url = options.url;
@@ -10,12 +17,7 @@ export default class Api {
     return fetch(`${this._url}/cards`, {
       method: "GET",
       headers: this.headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(handleOriginalResponse);
   }
 
   addNewCards({ name, link }) {
@@ -26,48 +28,28 @@ export default class Api {
         name: name,
         link: link,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(handleOriginalResponse);
   }
 
   deleteCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}`, {
       method: "DELETE",
       headers: this.headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(handleOriginalResponse);
   }
 
   addLike(cardId) {
     return fetch(`${this._url}/cards/likes/${cardId}`, {
       method: "PUT",
       headers: this.headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(handleOriginalResponse);
   }
 
   deleteLike(cardId) {
     return fetch(`${this._url}/cards/likes/${cardId}`, {
       method: "DELETE",
       headers: this.headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(handleOriginalResponse);
   }
 
   changeAvatar({ avatar }) {
@@ -77,24 +59,14 @@ export default class Api {
       body: JSON.stringify({
         avatar: avatar,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(handleOriginalResponse);
   }
 
   getUserInfo() {
     return fetch(`${this._url}/users/me/`, {
       method: "GET",
       headers: this.headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(handleOriginalResponse);
   }
 
   changeUserInfo({ name, about }) {
@@ -105,11 +77,6 @@ export default class Api {
         name: name,
         about: about,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.status}`);
-    });
+    }).then(handleOriginalResponse);
   }
 }

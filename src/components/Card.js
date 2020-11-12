@@ -18,7 +18,7 @@ export default class Card {
   }
 
   isLiked() {
-    return Boolean(
+    return (
       this._likes.some((like) => {
         return like._id == this._id;
       })
